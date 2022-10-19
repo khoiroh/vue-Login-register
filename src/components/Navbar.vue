@@ -53,7 +53,7 @@ computed: {
 
 <style scoped>
 .logout{
-   margin-left: 70%;
+   margin-left: 68%;
    text-decoration: none;
    }
 </style>

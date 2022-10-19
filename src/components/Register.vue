@@ -60,7 +60,7 @@ export default {
             var convertToString = JSON.stringify(registrasi.data);
             sessionStorage.setItem("USER_DATA", convertToString);
             this.$emit("toggleBar");
-            this.$router.push("/jakarta")
+            this.$router.push("/")
         },
     },
 };

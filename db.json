@@ -1,16 +1,104 @@
 {
-    "akuns": [
+  "akuns": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "khoiroh",
+      "password": "1111",
+      "role": "user"
+    }
+    ],
+    "users": [
       {
-        "id": 1,
-        "username": "admin",
-        "password": "123",
-        "role": "admin"
+        "id": 0,
+        "kota": "Jakarta Selatan ",
+        "kecamatan": 10,
+        "kelurahan": 65,
+        "jumlah": 2.234
       },
       {
-        "id":2,
-        "username": "khoiroh",
-        "password": "1111",
-        "role": "user"
+        "id": 1,
+        "kota": "Jakarta Utara ",
+        "kecamatan": 6,
+        "kelurahan": 32,
+        "jumlah": 1.785
+      },
+      {
+        "id": 2,
+        "kota": "Jakarta Timur ",
+        "kecamatan": 10,
+        "kelurahan": 65,
+        "jumlah": 3.056
+      },
+      {
+        "id": 3,
+        "kota": "Jakarta Barat ",
+        "kecamatan": 8,
+        "kelurahan": 56,
+        "jumlah": 2.44
+      },
+      {
+        "id": 4,
+        "kota": "Jakarta Pusat ",
+        "kecamatan": 8,
+        "kelurahan": 44,
+        "jumlah": 1.066
+            },
+            {
+              "id": 5,
+              "kota": "Kepulauan Seribu ",
+              "kecamatan": 2,
+              "kelurahan": 6,
+              "jumlah": 28
+            }
+    ]  ,
+    "jatengs": [
+      {
+        "id": 0,
+        "kota": "Pati",
+        "jumlah": "1.324.188",
+        "kecamatan": 21,
+        "kelurahan": 5
+      },
+      {
+        "id": 1,
+        "kota": "Kudus",
+        "jumlah": "849.184",
+        "kecamatan": 9,
+        "kelurahan": 9
+      },
+      {
+        "id": 2,
+        "kota": "Pemalang",
+        "jumlah": "1.471.489",
+        "kecamatan": 14,
+        "kelurahan": 11
+      },
+      {
+        "id": 3,
+        "kota": "Kebumen",
+        "jumlah": "1.350.438",
+        "kecamatan": 26,
+        "kelurahan": 11
+      },
+      {
+        "id": 4,
+        "kota": "Semarang",
+        "jumlah": "1.053.094",
+        "kecamatan": 19,
+        "kelurahan": 27
+      },
+      {
+        "id": 5,
+        "kota": "Brebes",
+        "jumlah": "1.978.759",
+        "kecamatan": 17,
+        "kelurahan": 5
       }
     ]
-  }
+}
