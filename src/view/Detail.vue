@@ -36,7 +36,7 @@
               <td>{{ user.kelurahan }} Kelurahan</td>
               <td>{{ user.jumlah }}</td>
               <td style="text-align: center">
-                <button class="edit" @click="edit(user)">Edit</button> ||
+                <button class="edit" @click="edit(user)" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button> ||
                 <button class="delete" @click="del(user)">Delete</button>
               </td>
             </tr>
@@ -50,7 +50,7 @@
           type="button"
           class="btn btn-primary"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModalJateng"
+          data-bs-target="#jateng"
         >
           Add jateng
         </button>
@@ -75,7 +75,7 @@
               <td>{{ jateng.kelurahan }} Kelurahan</td>
               <td>{{ jateng.jumlah }}</td>
               <td style="text-align: center">
-                <button class="edit" @click="editJateng(jateng)">Edit</button>
+                <button class="edit" @click="editJateng(jateng)" data-bs-toggle="modal" data-bs-target="#jateng">Edit</button>
                 ||
                 <button class="delete" @click="delJateng(jateng)">
                   Delete
@@ -177,8 +177,18 @@
                 type="submit"
                 class="btn btn-primary"
                 data-bs-dismiss="modal"
+                v-show="!updateSubmitJakarta"
               >
                 Save changes
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+                v-show="updateSubmitJakarta"
+                @click="update(form)"
+              >
+               update
               </button>
             </form>
           </div>
@@ -189,7 +199,7 @@
     <!-- modal jateng -->
     <div
       class="modal fade"
-      id="exampleModalJateng"
+      id="jateng"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -287,7 +297,7 @@
                 v-show="updateSubmitJateng"
                 @click="updateJateng(formJatengs)"
               >
-                Save changes
+                update
               </button>
             </form>
           </div>
@@ -339,7 +349,7 @@ export default {
     // methods users
     loadUsers() {
       axios
-        .get(" http://localhost:3000/users")
+        .get("http://localhost:3000/users")
         .then((res) => {
           console.log(res.data);
           this.users = res.data; //respon dari rest api dimasukan ke users
@@ -358,7 +368,7 @@ export default {
       });
     },
     edit(user) {
-      this.updateSubmit = true;
+      this.updateSubmitJakarta = true;
       this.form.id = user.id;
       this.form.kota = user.kota;
       this.form.kecamatan = user.kecamatan;
@@ -374,12 +384,13 @@ export default {
           jumlah: this.form.jumlah,
         })
         .then(() => {
+          this.loadUsers();
           this.form.id = "";
           this.form.kota = "";
           this.form.kecamatan = "";
           this.form.kelurahan = "";
           this.form.jumlah = "";
-          this.updateSubmit = false;
+          this.updateSubmitJakarta = false;
         })
         .catch((err) => {
           console.log(err);
@@ -396,7 +407,6 @@ export default {
         this.users.splice(index, 1);
       });
     },
-
     // methods jatengs
     loadJatengs() {
       axios
@@ -444,7 +454,7 @@ export default {
           this.formJatengs.kecamatan = "";
           this.formJatengs.kelurahan = "";
           this.formJatengs.jumlah = "";
-          this.updateSubmit = false;
+          this.updateSubmitJakarta = false;
         })
         .catch((err) => {
           console.log(err);
